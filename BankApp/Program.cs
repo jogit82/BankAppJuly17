@@ -10,22 +10,13 @@ namespace BankApp
     {
         static void Main(string[] args)
         {
-            var myAccount = new Account
-            {
-                EmailAddress = "test@test.com",
-                AccountType = TypeOfAccounts.Checking
-            };
-
-            myAccount.Deposit(500.01M);
+            var myAccount = Bank.CreateAccount("test@test.com",
+                TypeOfAccounts.Checking);
 
             Console.WriteLine($"AccountNumber: {myAccount.AccountNumber}, Account Type: {myAccount.AccountType}, Balance: {myAccount.Balance:C}, CreatedDate: {myAccount.CreatedDate}");
 
-            var myAccount2 = new Account
-            {
-                AccountType = TypeOfAccounts.Savings
-            };
-            myAccount2.EmailAddress = "test2@test.com";
-            //myAccount2.AccountType = TypeOfAccounts.Savings;
+            var myAccount2 = Bank.CreateAccount("test2@tet.com", 
+                TypeOfAccounts.Savings, 0.0M);
             Console.WriteLine($"AccountNumber: {myAccount2.AccountNumber}, Account Type: {myAccount2.AccountType}, Balance: {myAccount2.Balance:C}, CreatedDate: {myAccount2.CreatedDate}");
 
         }

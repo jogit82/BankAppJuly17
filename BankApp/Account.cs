@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BankApp
 {
-    enum TypeOfAccounts
+    public enum TypeOfAccounts
     {
         Checking,
         Savings,
@@ -16,7 +16,7 @@ namespace BankApp
     /// <summary>
     /// This class describes a bank account
     /// </summary>
-    class Account
+    public class Account
     {
         #region statics
         private static int lastAccountNumber = 0;
@@ -30,8 +30,6 @@ namespace BankApp
         public string EmailAddress { get; set; }
 
         public int AccountNumber { get; private set; }
-
-        public int SSN { get; set; }
 
         public DateTime CreatedDate { get; private set; }
 
