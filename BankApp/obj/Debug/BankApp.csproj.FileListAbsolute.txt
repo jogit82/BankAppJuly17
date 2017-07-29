@@ -4,3 +4,9 @@ G:\OneDrive - Kal Academy\Documents\Materials\CSharp\July17\BankApp\BankApp\bin\
 G:\OneDrive - Kal Academy\Documents\Materials\CSharp\July17\BankApp\BankApp\obj\Debug\BankApp.csprojResolveAssemblyReference.cache
 G:\OneDrive - Kal Academy\Documents\Materials\CSharp\July17\BankApp\BankApp\obj\Debug\BankApp.exe
 G:\OneDrive - Kal Academy\Documents\Materials\CSharp\July17\BankApp\BankApp\obj\Debug\BankApp.pdb
+G:\Github\BankAppJuly17\BankApp\bin\Debug\BankApp.exe.config
+G:\Github\BankAppJuly17\BankApp\bin\Debug\BankApp.exe
+G:\Github\BankAppJuly17\BankApp\bin\Debug\BankApp.pdb
+G:\Github\BankAppJuly17\BankApp\obj\Debug\BankApp.csprojResolveAssemblyReference.cache
+G:\Github\BankAppJuly17\BankApp\obj\Debug\BankApp.exe
+G:\Github\BankAppJuly17\BankApp\obj\Debug\BankApp.pdb
