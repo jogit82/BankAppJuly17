@@ -8,7 +8,7 @@ namespace BankApp
 {
     public static class Bank
     {
-        private static List<Account> accounts = new List<Account>();
+        private static BankModel db = new BankModel();
         public static string Name { get; set; }
 
         static Bank()
@@ -29,8 +29,15 @@ namespace BankApp
             {
                 account.Deposit(amount);
             }
-            accounts.Add(account);
+            db.Accounts.Add(account);
+            db.SaveChanges();
             return account;
+        }
+
+        public static Account[] GetAllAccountsByEmailAddress(string emailAddress)
+        {
+            return db.Accounts.
+                Where(a => a.EmailAddress == emailAddress).ToArray();
         }
     }
 }
