@@ -39,5 +39,66 @@ namespace BankApp
             return db.Accounts.
                 Where(a => a.EmailAddress == emailAddress).ToArray();
         }
+
+        public static Account GetAccountByAccountNumber(int accountNumber)
+        {
+            var account = db.Accounts.Where(a => a.AccountNumber == accountNumber)
+                .FirstOrDefault();
+
+            if (account == null)
+            {
+                throw new ArgumentException("Invalid account number.");
+            }
+            return account;
+        }
+
+        public static void Deposit(int accountNumber, decimal amount)
+        {
+            var account = GetAccountByAccountNumber(accountNumber);
+            account.Deposit(amount);
+            db.Entry(account).CurrentValues.SetValues(account);
+            db.SaveChanges();
+
+            var transaction = new Transaction
+            {
+                TypeOfTransaction = TransactionType.Credit,
+                TransactionDate = DateTime.Now,
+                Amount = amount,
+                Description = "Deposit",
+                AccountNumber = accountNumber
+            };
+
+            db.Transactions.Add(transaction);
+            db.SaveChanges();
+        }
+
+        public static void Withdraw(int accountNumber, decimal amount)
+        {
+            var account = GetAccountByAccountNumber(accountNumber);
+            account.Withdraw(amount);
+            db.Entry(account).CurrentValues.SetValues(account);
+            db.SaveChanges();
+
+            var transaction = new Transaction
+            {
+                TypeOfTransaction = TransactionType.Debit,
+                TransactionDate = DateTime.Now,
+                Amount = amount,
+                Description = "Withdraw",
+                AccountNumber = accountNumber
+            };
+
+            db.Transactions.Add(transaction);
+            db.SaveChanges();
+        }
+
+
+        public static Transaction[] GetTransactionsByAccountNumber(int accountNumber)
+        {
+            return db.Transactions
+                .Where(t => t.AccountNumber == accountNumber)
+                .OrderByDescending(t => t.TransactionDate)
+                .ToArray();
+        }
     }
 }

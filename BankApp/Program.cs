@@ -19,6 +19,7 @@ namespace BankApp
                 Console.WriteLine("2. Deposit");
                 Console.WriteLine("3. Withdraw");
                 Console.WriteLine("4. Print all accounts");
+                Console.WriteLine("5. Print transactions");
                 Console.Write("Please select an option: ");
                 var option = Console.ReadLine();
                 switch (option)
@@ -46,12 +47,65 @@ namespace BankApp
                         Console.WriteLine($"AN: {account.AccountNumber}, TA: {account.AccountType}, Balance: {account.Balance}");
                         break;
                     case "2":
+                        try
+                        {
+                            PrintAllAccounts();
+                            Console.Write("Account number to do deposit? ");
+                            var accountNumber = Convert.ToInt32(Console.ReadLine());
+                            Console.Write("Amount to deposit: ");
+                            amount = Convert.ToDecimal(Console.ReadLine());
+
+                            Bank.Deposit(accountNumber, amount);
+                            Console.WriteLine("Deposit completed successfully");
+                        }
+                        catch (ArgumentNullException ax)
+                        {
+                            Console.WriteLine($"Something went wrong. {ax.Message} ");
+                        }
+                        catch(FormatException)
+                        {
+                            Console.WriteLine($"Something went wrong. Either account number or amount is invalid.");
+                        }
                         break;
                     case "3":
+                        try
+                        {
+                            PrintAllAccounts();
+                            Console.Write("Account number to do withdraw? ");
+                            var accountNumber = Convert.ToInt32(Console.ReadLine());
+                            Console.Write("Amount to withdraw: ");
+                            amount = Convert.ToDecimal(Console.ReadLine());
 
+                            Bank.Withdraw(accountNumber, amount);
+                            Console.WriteLine("Withdraw completed successfully");
+                        }
+                        catch (ArgumentNullException ax)
+                        {
+                            Console.WriteLine($"Something went wrong. {ax.Message} ");
+                        }
                         break;
                     case "4":
                         PrintAllAccounts();
+                        break;
+
+                    case "5":
+                        try
+                        {
+                            PrintAllAccounts();
+                            Console.Write("Account number to view transactions? ");
+                            var accountNumber = Convert.ToInt32(Console.ReadLine());
+
+                            var transactions = Bank.GetTransactionsByAccountNumber(accountNumber);
+                            foreach (var transaction in transactions)
+                            {
+                                Console.WriteLine($"TN: {transaction.Id}, Description: {transaction.Description}, Type: {transaction.TypeOfTransaction}, Date: {transaction.TransactionDate}, Amount: {transaction.Amount}");
+                            }
+                        }
+                        catch (ArgumentNullException ax)
+                        {
+                            Console.WriteLine($"Something went wrong. {ax.Message} ");
+                        }
+
                         break;
                     default:
                         break;
@@ -63,6 +117,10 @@ namespace BankApp
         {
             Console.Write("Email address: ");
             var emailAddress = Console.ReadLine();
+            if (string.IsNullOrEmpty(emailAddress))
+            {
+                throw new ArgumentNullException("Invalid email address.");
+            }
             var myAccounts =
                 Bank.GetAllAccountsByEmailAddress(emailAddress);
 
