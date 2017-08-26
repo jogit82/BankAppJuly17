@@ -4,13 +4,13 @@ G:\OneDrive - Kal Academy\Documents\Materials\CSharp\July17\BankApp\BankApp\bin\
 G:\OneDrive - Kal Academy\Documents\Materials\CSharp\July17\BankApp\BankApp\obj\Debug\BankApp.csprojResolveAssemblyReference.cache
 G:\OneDrive - Kal Academy\Documents\Materials\CSharp\July17\BankApp\BankApp\obj\Debug\BankApp.exe
 G:\OneDrive - Kal Academy\Documents\Materials\CSharp\July17\BankApp\BankApp\obj\Debug\BankApp.pdb
-G:\Github\BankAppJuly17\BankApp\bin\Debug\BankApp.exe.config
-G:\Github\BankAppJuly17\BankApp\bin\Debug\BankApp.exe
 G:\Github\BankAppJuly17\BankApp\bin\Debug\BankApp.pdb
 G:\Github\BankAppJuly17\BankApp\obj\Debug\BankApp.csprojResolveAssemblyReference.cache
-G:\Github\BankAppJuly17\BankApp\obj\Debug\BankApp.exe
 G:\Github\BankAppJuly17\BankApp\obj\Debug\BankApp.pdb
 G:\Github\BankAppJuly17\BankApp\bin\Debug\EntityFramework.dll
 G:\Github\BankAppJuly17\BankApp\bin\Debug\EntityFramework.SqlServer.dll
 G:\Github\BankAppJuly17\BankApp\bin\Debug\EntityFramework.xml
 G:\Github\BankAppJuly17\BankApp\bin\Debug\EntityFramework.SqlServer.xml
+G:\Github\BankAppJuly17\BankApp\bin\Debug\BankApp.dll.config
+G:\Github\BankAppJuly17\BankApp\bin\Debug\BankApp.dll
+G:\Github\BankAppJuly17\BankApp\obj\Debug\BankApp.dll
