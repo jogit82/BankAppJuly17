@@ -82,6 +82,14 @@ namespace BankApp
         /// <returns>The new balance</returns>
         public decimal Withdraw(decimal amount)
         {
+            if (amount > Balance)
+            {
+                throw new ArgumentOutOfRangeException("Amount is greater than the balance");
+            }
+            if (amount < 0)
+            {
+                throw new ArgumentOutOfRangeException("Amount should be a postive number");
+            }
             Balance -= amount;
             return Balance;
         }
