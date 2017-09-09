@@ -97,3 +97,4 @@ G:\Github\BankAppJuly17\BankUI\bin\Microsoft.AI.Web.xml
 G:\Github\BankAppJuly17\BankUI\obj\Debug\BankUI.csprojResolveAssemblyReference.cache
 G:\Github\BankAppJuly17\BankUI\obj\Debug\BankUI.dll
 G:\Github\BankAppJuly17\BankUI\obj\Debug\BankUI.pdb
+G:\Github\BankAppJuly17\BankUI\obj\Debug\BankUI.csproj.CoreCompileInputs.cache

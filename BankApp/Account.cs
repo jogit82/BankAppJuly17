@@ -19,10 +19,6 @@ namespace BankApp
     /// </summary>
     public class Account
     {
-        #region statics
-        private static int lastAccountNumber = 0;
-        #endregion
-
         #region Properties
         /// <summary>
         /// Email address of the 
@@ -34,13 +30,13 @@ namespace BankApp
         public string EmailAddress { get; set; }
 
         [Key]
-        public int AccountNumber { get; private set; }
+        public int AccountNumber { get; set; }
 
-        public DateTime CreatedDate { get; private set; }
+        public DateTime CreatedDate { get;  set; }
 
         public TypeOfAccounts AccountType { get; set; }
 
-        public decimal Balance { get; private set; }
+        public decimal Balance { get;  set; }
 
         public virtual ICollection<Transaction> Transactions { get; set; }
 
@@ -49,8 +45,6 @@ namespace BankApp
         #region constructors
         public Account()
         {
-            //lastAccountNumber = lastAccountNumber + 1;
-            AccountNumber = ++lastAccountNumber;
             CreatedDate = DateTime.Now;
         }
 

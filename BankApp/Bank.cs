@@ -92,6 +92,12 @@ namespace BankApp
             db.SaveChanges();
         }
 
+        public static void EditAccount(Account modifiedAccount)
+        {
+            var oldAccount = GetAccountByAccountNumber(modifiedAccount.AccountNumber);
+            db.Entry(oldAccount).CurrentValues.SetValues(modifiedAccount);
+            db.SaveChanges();
+        }
 
         public static Transaction[] GetTransactionsByAccountNumber(int accountNumber)
         {
