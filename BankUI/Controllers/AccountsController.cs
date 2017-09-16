@@ -92,31 +92,66 @@ namespace BankUI.Controllers
             return View(account);
         }
 
-        // GET: Accounts/Delete/5
-        public ActionResult Delete(int? id)
+        //GET
+        public ActionResult Deposit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Account account = db.Accounts.Find(id);
-            if (account == null)
+            Account account = null;
+            try
+            {
+                account = Bank.GetAccountByAccountNumber(id.Value);
+            }
+            catch (ArgumentException)
             {
                 return HttpNotFound();
             }
             return View(account);
         }
 
-        // POST: Accounts/Delete/5
-        [HttpPost, ActionName("Delete")]
+        [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        public ActionResult Deposit(FormCollection controls)
         {
-            Account account = db.Accounts.Find(id);
-            db.Accounts.Remove(account);
-            db.SaveChanges();
+            var accountNumber = Convert.ToInt32(controls["AccountNumber"]);
+            var amount = Convert.ToDecimal(controls["Amount"]);
+            Bank.Deposit(accountNumber, amount);
             return RedirectToAction("Index");
+
         }
+
+        //GET
+        public ActionResult Withdraw(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Account account = null;
+            try
+            {
+                account = Bank.GetAccountByAccountNumber(id.Value);
+            }
+            catch (ArgumentException)
+            {
+                return HttpNotFound();
+            }
+            return View(account);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Withdraw(FormCollection controls)
+        {
+            var accountNumber = Convert.ToInt32(controls["AccountNumber"]);
+            var amount = Convert.ToDecimal(controls["Amount"]);
+            Bank.Withdraw(accountNumber, amount);
+            return RedirectToAction("Index");
+
+        }
+
 
         protected override void Dispose(bool disposing)
         {

@@ -106,5 +106,10 @@ namespace BankApp
                 .OrderByDescending(t => t.TransactionDate)
                 .ToArray();
         }
+
+        public static Transaction GetTransactionById(int id)
+        {
+            return db.Transactions.Where(t => t.Id == id).FirstOrDefault();
+        }
     }
 }
